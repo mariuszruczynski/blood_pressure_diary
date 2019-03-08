@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add new measurement</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>add new measurement</h1>
+<form th:action="@{/addMeasurement}"
+      th:object="${measurement}" method="POST">
+    Date:
+    <input type="date" th:field="*{date}" />
+    <br/>
+    Time:
+    <input type="time" th:field="*{time}" />
+    <br/>
+    RR:
+    <input type="text" th:field="*{rr}" />
+    <br/>
+    Pulse
+    <input type="text" th:field="*{pulse}" />
+    <br/>
+    Description:
+    <input type="text" th:field="*{description}" />
+    <br/>
+    <input type="submit" value="Add measurement" />
+    <br/>
+</form>
+<br><br>
+<br><br>
+<a href="index">Main menu</a>
+</body>
+</html>

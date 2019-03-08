@@ -1,19 +1,21 @@
 package com.example.blood_pressure_diary.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
+
 public class MeasurementEntity {
 
     @Id
@@ -21,8 +23,10 @@ public class MeasurementEntity {
     private Long id;
 
     private LocalDate date;
+    private LocalTime time;
     private String rr;
     private String pulse;
     private Long idUser;
+    private String description;
 
 }

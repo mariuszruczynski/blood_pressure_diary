@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Blood preassure diary</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <script type="text/javascript">
+        function myfunction() {
+            var startDate = document.getElementById("sd").value;
+            var endDate = document.getElementById("ed").value;
+            if (startDate === "" || endDate === "") {
+                document.getElementById("sa").innerHTML = "<h2>bad date selected</h2>";
+            } else {
+                document.getElementById("sa").innerHTML = "<a href=/" + startDate + "/" + endDate + "/measurementsByDate>Show</a>";
+                document.getElementById("sb").innerHTML = "<a href=/" + startDate + "/" + endDate + "/toPdf>Import to PDF</a>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form>
+    <br>
+    <h1>Select date</h1>
+    <br>
+    start date:<input type="date" id="sd"/>
+
+
+    <br><br>
+    end date:<input type="date" id="ed"/>
+    <br>
+    <br>
+    <input type="button"
+           onclick="myfunction()"
+           value="accept">
+    <br><br>
+
+    <span id="sa"></span><br><br>
+    <span id="sb"></span>
+
+</form>
+
+<br><br>
+<br><br>
+<a href="index">Main menu</a>
+</body>
+</html>

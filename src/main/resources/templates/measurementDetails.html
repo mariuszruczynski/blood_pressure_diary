@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hospital List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Measure details:</h1>
+
+<div>
+    <h2 th:utext="'Date: ' + ${measurement.date}"></h2>
+    <h2 th:utext="'Time: ' + ${measurement.time}"></h2>
+    <h2 th:utext="'Rr: ' + ${measurement.rr}"></h2>
+    <h2 th:utext="'Pulse: ' + ${measurement.pulse}"></h2>
+    <h2 th:utext="'Description: ' + ${measurement.description}"></h2>
+
+</div>
+
+<br/>
+<a th:href="@{/measurements}">Back</a>
+<br><br>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<br><br>
+<br><br>
+<a href="index">Main menu</a>
+</body>
+</html>

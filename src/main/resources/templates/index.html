@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Blood preassure diary</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>MAIN MENU</h1>
+
+<br/>
+<center>
+    <div>
+        <a href="/addMeasurement">Add new measurements</a><br><br>
+        <a href="/setDateRange">Show by measurement date</a><br><br>
+        <a href="/measurements">Show all measurements</a>
+    </div>
+</center>
+<br><br>
+<a href="index">Main menu</a>
+<br><br>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

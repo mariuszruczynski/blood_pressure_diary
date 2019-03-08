@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Measurements list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<center>
+<h1>Measures history:</h1>
+</center>
+<br/>
+<center>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>RR</th>
+                <th>Pulse</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="measure : ${measures}">
+                <td th:utext="${measure.getDate()}">...</td>
+                <td th:utext="${measure.getTime()}">...</td>
+                <td th:utext="${measure.getRr()}">...</td>
+                <td th:utext="${measure.getPulse()}">...</td>
+                <td th:utext="${measure.getDescription()}">...</td>
+            </tr>
+        </table>
+    </div>
+</center>
+<br><br>
+<br><br>
+<a href="index">Main menu</a>
+
+
+</body>
+</html>
