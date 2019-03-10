@@ -16,6 +16,9 @@ public interface MeasurementRepository extends JpaRepository<MeasurementEntity, 
     @Query(value = "SELECT * FROM measurement_entity WHERE id=:id", nativeQuery = true)
     MeasurementEntity find(@Param("id") Long id);
 
-    @Query(value = "SELECT * FROM measurement_entity WHERE date BETWEEN :start AND :end", nativeQuery = true)
-    List<MeasurementEntity> findByDate(@Param("start") String startDate, @Param("end") String endDate);
+    @Query(value = "SELECT * FROM measurement_entity WHERE id_user =:idUser AND date BETWEEN :start AND :end", nativeQuery = true)
+    List<MeasurementEntity> findByDate(@Param("start") String startDate, @Param("end") String endDate, @Param("idUser") Long loggedUserId);
+
+    @Query(value = "Select * From measurement_entity WHERE id_user =:idUser ", nativeQuery = true)
+    List<MeasurementEntity> findByUerId(@Param("idUser") Long loggedUserId);
 }

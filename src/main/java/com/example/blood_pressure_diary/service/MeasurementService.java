@@ -19,22 +19,24 @@ public class MeasurementService {
 
     private final MeasurementRepository measurementRepository;
     private final PdfService pdfService;
+    private final UserUtils userUtils;
 
-    public MeasurementService(MeasurementRepository measurementRepository, PdfService pdfService) {
+    public MeasurementService(MeasurementRepository measurementRepository, PdfService pdfService, UserUtils userUtils) {
         this.measurementRepository = measurementRepository;
         this.pdfService = pdfService;
+        this.userUtils = userUtils;
     }
 
 
-    public List<MeasurementEntity> findAll() {
-        List<MeasurementEntity> measurementEntities = measurementRepository.findAll();
+    public List<MeasurementEntity> findAllByUserId() {
+        List<MeasurementEntity> measurementEntities = measurementRepository.findByUerId(userUtils.getLoggedUserId());
         Collections.reverse(measurementEntities);
 
         return measurementEntities;
     }
 
     public List<MeasurementEntity> findByDate(String startDate, String endDate) {
-        return measurementRepository.findByDate(startDate, endDate);
+        return measurementRepository.findByDate(startDate, endDate, userUtils.getLoggedUserId());
     }
 
     public MeasurementEntity findById(Long id){
@@ -49,7 +51,7 @@ public class MeasurementService {
         measurementEntity.setRr(measurement.getRr());
         measurementEntity.setPulse(measurement.getPulse());
         measurementEntity.setDescription(measurement.getDescription());
-        measurementEntity.setIdUser(1L);
+        measurementEntity.setIdUser(userUtils.getLoggedUserId());
 
         measurementRepository.save(measurementEntity);
     }
@@ -63,9 +65,9 @@ public class MeasurementService {
 
     private LocalDate checkAndSetDate(Measurement measurement) {
         if (measurement.getDate().isEmpty()) {
-            return LocalDate.now();
+            return LocalDate.now().plusDays(1);
         }
-        return LocalDate.parse(measurement.getDate());
+        return LocalDate.parse(measurement.getDate()).plusDays(1);
     }
 
 

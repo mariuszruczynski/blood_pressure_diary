@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -20,7 +21,8 @@ public class MeasurementController {
 
     @GetMapping(value = {"/measurements"})
     public String getAll(Model model) {
-        model.addAttribute("measures", measurementService.findAll());
+        model.addAttribute("measures", measurementService.findAllByUserId());
+        System.out.println(LocalDate.now());
         return "measurements";
     }
 
