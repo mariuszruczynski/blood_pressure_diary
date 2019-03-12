@@ -26,8 +26,8 @@ public class MeasurementService {
     }
 
 
-    public byte[] generatePdfReport(List<MeasurementEntity> list) {
-        return pdfService.generatePdfReport(list);
+    public byte[] generatePdfReport(List<MeasurementEntity> list, String startDate, String endDate) {
+        return pdfService.generatePdfReport(list, startDate, endDate);
     }
 
     public List<MeasurementEntity> findAllByUserId() {

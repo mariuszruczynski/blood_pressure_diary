@@ -1,31 +1,33 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Blood pressure diary</title>
 
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-<h1>add new user</h1>
-<form th:action="@{/addUser}"
-      th:object="${user}" method="POST">
-    User name
-    <input type="text" th:field="*{name}" />
-    <br/>
-    Email
-    <input type="text" th:field="*{email}" />
-    <br/>
-    Password
-    <input type="text" th:field="*{password}" />
-    <br/>
+<center>
+    <h1>add new user</h1>
+    <form th:action="@{/addUser}"
+          th:object="${user}" method="POST">
+        User name
+        <input type="text" required="required" th:field="*{name}"/>
+        <br/>
+        Email
+        <input type="text" required="required" th:field="*{email}"/>
+        <br/>
+        Password
+        <input type="text" required="required" th:field="*{password}"/>
+        <br/>
 
-    <br/>
-    <input type="submit" value="Add user" />
-    <br/>
-</form>
-<br><br>
-<br><br>
-<a href="index">Main menu</a>
+        <br/>
+        <input type="submit" value="Add user"/>
+        <br/>
+    </form>
+    <br><br>
+    <br><br>
+    <a href="index">Main menu</a>
+</center>
 </body>
 </html>

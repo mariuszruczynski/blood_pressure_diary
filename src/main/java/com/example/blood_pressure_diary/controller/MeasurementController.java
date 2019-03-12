@@ -29,7 +29,6 @@ public class MeasurementController {
     @GetMapping(value = {"/measurements"})
     public String getAll(Model model) {
         model.addAttribute("measures", measurementService.findAllByUserId());
-        System.out.println(LocalDate.now());
         return "measurements";
     }
 
@@ -45,21 +44,15 @@ public class MeasurementController {
         return "measurementsByDate";
     }
 
-
-    @GetMapping(path="/list")
-    public String loadReportPage() {
-        return "reportPage";
-    }
-
     @GetMapping(value = {"/{startDate}/{endDate}/toPdf"}, produces = "application/pdf")
     public @ResponseBody void getByDateAndExportToPdf(@PathVariable String startDate, @PathVariable String endDate, Model model, HttpServletResponse response) throws IOException, DocumentException {
 
         List<MeasurementEntity> list = measurementService.findByDate(startDate, endDate);
-        byte[] pdfRaport = measurementService.generatePdfReport(list);
+        byte[] pdfReport = measurementService.generatePdfReport(list, startDate, endDate);
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=" + timeStampFileNameGenerator.generateTimeStampFileName());
-        response.setHeader("Content-Length", String.valueOf(pdfRaport.length));
-        FileCopyUtils.copy(pdfRaport, response.getOutputStream());
+        response.setHeader("Content-Length", String.valueOf(pdfReport.length));
+        FileCopyUtils.copy(pdfReport, response.getOutputStream());
 
     }
 
