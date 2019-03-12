@@ -1,12 +1,17 @@
 package com.example.blood_pressure_diary.controller;
 
 import com.example.blood_pressure_diary.entity.MeasurementEntity;
+import com.example.blood_pressure_diary.generator.TimeStampFileNameGenerator;
 import com.example.blood_pressure_diary.model.Measurement;
 import com.example.blood_pressure_diary.service.MeasurementService;
+import com.itextpdf.text.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,9 +19,11 @@ import java.util.List;
 public class MeasurementController {
 
     private final MeasurementService measurementService;
+    private final TimeStampFileNameGenerator timeStampFileNameGenerator;
 
-    public MeasurementController(MeasurementService measurementService) {
+    public MeasurementController(MeasurementService measurementService, TimeStampFileNameGenerator timeStampFileNameGenerator) {
         this.measurementService = measurementService;
+        this.timeStampFileNameGenerator = timeStampFileNameGenerator;
     }
 
     @GetMapping(value = {"/measurements"})
@@ -28,25 +35,32 @@ public class MeasurementController {
 
     @GetMapping(value = {"/{id}/measurements"})
     public String getById(@PathVariable Long id, Model model) {
-
         model.addAttribute("measurement", measurementService.findById(id));
         return "measurementDetails";
     }
 
     @GetMapping(value = {"/{startDate}/{endDate}/measurementsByDate"})
     public String getByDate(@PathVariable String startDate, @PathVariable String endDate, Model model) {
-
         model.addAttribute("measures", measurementService.findByDate(startDate, endDate));
         return "measurementsByDate";
     }
 
 
-    @GetMapping(value = {"/{startDate}/{endDate}/toPdf"})
-    public String getByDateAndExportToPdf(@PathVariable String startDate, @PathVariable String endDate, Model model) {
+    @GetMapping(path="/list")
+    public String loadReportPage() {
+        return "reportPage";
+    }
+
+    @GetMapping(value = {"/{startDate}/{endDate}/toPdf"}, produces = "application/pdf")
+    public @ResponseBody void getByDateAndExportToPdf(@PathVariable String startDate, @PathVariable String endDate, Model model, HttpServletResponse response) throws IOException, DocumentException {
 
         List<MeasurementEntity> list = measurementService.findByDate(startDate, endDate);
-        measurementService.saveToPdf(list);
-        return "toPdf";
+        byte[] pdfRaport = measurementService.generatePdfReport(list);
+        response.setContentType("application/pdf");
+        response.setHeader("Content-Disposition", "attachment; filename=" + timeStampFileNameGenerator.generateTimeStampFileName());
+        response.setHeader("Content-Length", String.valueOf(pdfRaport.length));
+        FileCopyUtils.copy(pdfRaport, response.getOutputStream());
+
     }
 
     @GetMapping(value = {"/addMeasurement"})

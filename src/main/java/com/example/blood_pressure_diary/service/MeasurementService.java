@@ -3,10 +3,8 @@ package com.example.blood_pressure_diary.service;
 import com.example.blood_pressure_diary.entity.MeasurementEntity;
 import com.example.blood_pressure_diary.model.Measurement;
 import com.example.blood_pressure_diary.repository.MeasurementRepository;
-import com.itextpdf.text.DocumentException;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collections;
@@ -28,6 +26,10 @@ public class MeasurementService {
     }
 
 
+    public byte[] generatePdfReport(List<MeasurementEntity> list) {
+        return pdfService.generatePdfReport(list);
+    }
+
     public List<MeasurementEntity> findAllByUserId() {
         List<MeasurementEntity> measurementEntities = measurementRepository.findByUerId(userUtils.getLoggedUserId());
         Collections.reverse(measurementEntities);
@@ -36,10 +38,13 @@ public class MeasurementService {
     }
 
     public List<MeasurementEntity> findByDate(String startDate, String endDate) {
-        return measurementRepository.findByDate(startDate, endDate, userUtils.getLoggedUserId());
+        List<MeasurementEntity> measurementEntities = measurementRepository.findByDate(startDate, endDate, userUtils.getLoggedUserId());
+        Collections.reverse(measurementEntities);
+
+        return measurementEntities;
     }
 
-    public MeasurementEntity findById(Long id){
+    public MeasurementEntity findById(Long id) {
         return measurementRepository.find(id);
     }
 
@@ -69,25 +74,6 @@ public class MeasurementService {
         }
         return LocalDate.parse(measurement.getDate()).plusDays(1);
     }
-
-
-    public void saveToPdf(List<MeasurementEntity> measurementsList) {
-
-        try {
-            pdfService.exportToPdf(measurementsList);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-
-
-
-
 
 
 }
