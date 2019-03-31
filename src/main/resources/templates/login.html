@@ -1,27 +1,63 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+
     <title>Blood pressure diary</title>
-        <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+
+    <style>
+
+        html {
+            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
 </head>
 <body>
-<center>
-    <h1>Login page</h1>
+
+
+<header class="w3-cell-row">
+    <div class="w3-cell w3-container" style="text-align: center">
+
+        <h2>Dzienniczek pomiarów <br>ciśnienia tętniczego</h2><br>
+        <h3>Strona logowania</h3>
+
+    </div>
+
+</header>
+
+<hr>
+<div class="w3-cell-row">
+
+    <div class="w3-cell w3-container" style="text-align: center">
+
+        <form th:action="@{/login}" method="post">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Zaloguj"/></div>
+        </form>
+
+    </div>
+</div>
+<br><br>
+<hr>
+
+
+<footer class="w3-container w3-theme w3-margin-top" style="text-align: center">
+
+    <p><a style="font-size: 25px" th:href="@{/addUser}">Załóż konto</a></p>
     <div th:if="${param.error}">
-        Invalid username and password.
+        Błędna nazwa lub hasło.
     </div>
     <div th:if="${param.logout}">
-        You have been logged out.
+        Wylogowano.
     </div>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
-
-    <p><a th:href="@{/addUser}">Register here</a></p>
-
-</center>
+</footer>
 </body>
 </html>

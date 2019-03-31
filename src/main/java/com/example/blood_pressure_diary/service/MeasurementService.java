@@ -5,6 +5,7 @@ import com.example.blood_pressure_diary.model.Measurement;
 import com.example.blood_pressure_diary.repository.MeasurementRepository;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collections;
@@ -26,7 +27,7 @@ public class MeasurementService {
     }
 
 
-    public byte[] generatePdfReport(List<MeasurementEntity> list, String startDate, String endDate) {
+    public byte[] generatePdfReport(List<MeasurementEntity> list, String startDate, String endDate) throws IOException {
         return pdfService.generatePdfReport(list, startDate, endDate);
     }
 
@@ -74,7 +75,5 @@ public class MeasurementService {
         }
         return LocalDate.parse(measurement.getDate()).plusDays(1);
     }
-
-
 }
 

@@ -2,26 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     <title>Blood pressure diary</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
 </head>
+
 <body>
-<h1>MAIN MENU</h1>
-
-<br/>
-<center>
-    <div>
-        <a href="/addMeasurement">Add new measurements</a><br><br>
-        <a href="/setDateRange">Show by measurement date</a><br><br>
-        <a href="/measurements">Show all measurements</a>
+<header class="w3-cell-row">
+    <div class="w3-cell w3-container" style="text-align: center">
+        <h1>Dzienniczek pomiarów <br>ciśnienia tętniczego</h1><br>
     </div>
-</center>
-<br><br>
-<a href="index">Main menu</a>
-<br><br>
 
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+</header>
+
+
+<div class="w3-cell-row">
+    <div class="w3-cell w3-container" style="text-align: center">
+        <div class="menuitem"><a href="/addMeasurement">Dodaj pomiar</a></div>
+        <div class="menuitem"><a href="/setDateRange">Pokaż pomiary według dat</a></div>
+        <div class="menuitem"><a href="/measurements">Pokaż wszystkie pomiary</a></div>
+    </div>
+</div>
+
+
+<footer class="w3-container w3-theme w3-margin-top" style="text-align: center">
+    <br>
+
+    <form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"/></form>
+    <br>
+    <hr>
+
+</footer>
 </body>
+
 </html>
