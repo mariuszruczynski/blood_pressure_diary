@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -17,7 +18,7 @@ public interface MeasurementRepository extends JpaRepository<MeasurementEntity, 
     MeasurementEntity find(@Param("id") Long id);
 
     @Query(value = "SELECT * FROM measurement_entity WHERE id_user =:idUser AND date BETWEEN :start AND :end", nativeQuery = true)
-    List<MeasurementEntity> findByDate(@Param("start") String startDate, @Param("end") String endDate, @Param("idUser") Long loggedUserId);
+    List<MeasurementEntity> findByDate(@Param("start") Date startDate, @Param("end") Date endDate, @Param("idUser") Long loggedUserId);
 
     @Query(value = "Select * From measurement_entity WHERE id_user =:idUser ", nativeQuery = true)
     List<MeasurementEntity> findByUerId(@Param("idUser") Long loggedUserId);

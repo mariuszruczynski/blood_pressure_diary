@@ -6,6 +6,7 @@ import com.example.blood_pressure_diary.repository.MeasurementRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collections;
@@ -39,7 +40,7 @@ public class MeasurementService {
     }
 
     public List<MeasurementEntity> findByDate(String startDate, String endDate) {
-        List<MeasurementEntity> measurementEntities = measurementRepository.findByDate(startDate, endDate, userUtils.getLoggedUserId());
+        List<MeasurementEntity> measurementEntities = measurementRepository.findByDate(Date.valueOf(startDate),Date.valueOf(endDate), userUtils.getLoggedUserId());
         Collections.reverse(measurementEntities);
 
         return measurementEntities;
@@ -73,7 +74,7 @@ public class MeasurementService {
         if (measurement.getDate().isEmpty()) {
             return LocalDate.now();
         }
-        return LocalDate.parse(measurement.getDate()).plusDays(1);
+        return LocalDate.parse(measurement.getDate());
     }
 }
 
