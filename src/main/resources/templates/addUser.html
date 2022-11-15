@@ -2,32 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+
     <title>Blood pressure diary</title>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <style>
+
+        html {
+            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
+    <!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>-->
+
 </head>
 <body>
 <center>
-    <h1>add new user</h1>
+    <h1>Załóż konto</h1>
     <form th:action="@{/addUser}"
           th:object="${user}" method="POST">
         User name
-        <input type="text" required="required" th:field="*{name}"/>
+        <input type="text"  required="required" th:field="*{name}"/>
         <br/>
         Email
-        <input type="text" required="required" th:field="*{email}"/>
+        <input type="email" required="required" th:field="*{email}"/>
         <br/>
         Password
-        <input type="text" required="required" th:field="*{password}"/>
+        <input type="password"  required="required" th:field="*{password}"/>
         <br/>
 
         <br/>
-        <input type="submit" value="Add user"/>
+        <input type="submit" value="Zatwierdź"/>
         <br/>
     </form>
-    <br><br>
+
     <br><br>
     <a href="index">Main menu</a>
+    <br><br>
 </center>
 </body>
 </html>

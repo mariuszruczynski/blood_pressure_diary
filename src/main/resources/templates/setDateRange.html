@@ -2,8 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     <title>Blood pressure diary</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
     <script type="text/javascript">
         function myfunction() {
             var startDate = document.getElementById("sd").value;
@@ -19,9 +21,10 @@
 </head>
 
 <body>
+
 <form>
     <br>
-    <h1>Select date</h1>
+    <h1>Ustaw zakres dat:</h1>
     <br>
     start date:<input type="date" id="sd"/>
 
@@ -43,5 +46,6 @@
 <br><br>
 <br><br>
 <a href="index">Main menu</a>
+<br><br><br>
 </body>
 </html>

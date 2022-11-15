@@ -1,35 +1,50 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
     <title>Blood pressure diary</title>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+    <style>
+        html {
+            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-<h1>add new measurement</h1>
+<h1><b>Dodaj pomiar</b></h1>
 <form th:action="@{/addMeasurement}"
       th:object="${measurement}" method="POST">
     Date:
-    <input type="date" th:field="*{date}" />
+    <input type="date" th:field="*{date}"/>
     <br/>
     Time:
-    <input type="time" th:field="*{time}" />
+    <input type="time" th:field="*{time}"/>
     <br/>
     RR:
-    <input type="text" th:field="*{rr}" />
+    <input type="text" th:field="*{rr}"/>
     <br/>
     Pulse
-    <input type="text" th:field="*{pulse}" />
+    <input type="text" th:field="*{pulse}"/>
     <br/>
     Description:
-    <input type="text" th:field="*{description}" />
+    <input type="text" th:field="*{description}"/>
     <br/>
-    <input type="submit" value="Add measurement" />
+    <input type="submit" value="Zatwierdź"/>
     <br/>
 </form>
 <br><br>
 <br><br>
 <a href="index">Main menu</a>
+<br><br>
+<br><br>
+<br><br>
+<hr>
 </body>
 </html>
