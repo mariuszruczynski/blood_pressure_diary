@@ -31,9 +31,9 @@ public class PdfService {
         com.itextpdf.kernel.pdf.PdfDocument pdfDoc = new com.itextpdf.kernel.pdf.PdfDocument(writer);
         Document document = new Document(pdfDoc, PageSize.A4);
         List<Paragraph> paragraphs = new ArrayList<>();
-        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
+        PdfFont font = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN, "UTF-8", true);
 
-        paragraphs.add(new Paragraph("Meauserments for user: " + userUtils.getLoggedUserName()).setFont(font).setFontSize(12));
+        paragraphs.add(new Paragraph("Measurements for user: " + userUtils.getLoggedUserName()).setFont(font).setFontSize(12));
         paragraphs.add((new Paragraph("")));
         paragraphs.add((new Paragraph("Date from: " + startDate + " to: " + endDate)).setFont(font).setFontSize(10));
         paragraphs.add((new Paragraph("")));

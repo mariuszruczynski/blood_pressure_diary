@@ -71,7 +71,7 @@ public class MeasurementService {
 
     private LocalDate checkAndSetDate(Measurement measurement) {
         if (measurement.getDate().isEmpty()) {
-            return LocalDate.now().plusDays(1);
+            return LocalDate.now();
         }
         return LocalDate.parse(measurement.getDate()).plusDays(1);
     }
