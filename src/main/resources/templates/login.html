@@ -1,63 +1,26 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-
-    <title>Blood pressure diary</title>
-
-    <style>
-
-        html {
-            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blood Pressure Diary</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}">
 </head>
 <body>
-
-
-<header class="w3-cell-row">
-    <div class="w3-cell w3-container" style="text-align: center">
-
-        <h2>Dzienniczek pomiarów <br>ciśnienia tętniczego</h2><br>
-        <h3>Strona logowania</h3>
-
-    </div>
-
-</header>
-
-<hr>
-<div class="w3-cell-row">
-
-    <div class="w3-cell w3-container" style="text-align: center">
-
+<div class="container">
+    <header>
+        <h2>Arterial Pressure Measurement Logbook</h2>
+    </header>
+    <main>
         <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Zaloguj"/></div>
+            <div class="input-text"><label> User Name : </label><input type="text" name="username"/> </div>
+            <div class="input-text"><label> Password:</label> <input type="password" name="password"/> </div>
+            <div class="form-submit-button"><input type="submit" value="Login"/></div>
         </form>
-
-    </div>
+    </main>
 </div>
-<br><br>
-<hr>
 
-
-<footer class="w3-container w3-theme w3-margin-top" style="text-align: center">
-
-    <p><a style="font-size: 25px" th:href="@{/addUser}">Załóż konto</a></p>
-    <div th:if="${param.error}">
-        Błędna nazwa lub hasło.
-    </div>
-    <div th:if="${param.logout}">
-        Wylogowano.
-    </div>
-</footer>
 </body>
 </html>
