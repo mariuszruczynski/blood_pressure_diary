@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    cursor: default;
+}
+
+.container{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    max-height: 1080px;
+    max-width: 1920px;
+    /*border: 1px solid red;*/
+}
+/*HEADER*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 1rem auto 0;
+    width: 90%;
+}
+header h1{
+    width: 60%;
+    padding: .5rem 1rem;
+}
+header img{
+    /*width: 40vw;*/
+    height: 20vh;
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    border-top: 2px solid black;
+}
+/*MENU*/
+nav div{
+    margin: .4rem .2rem;
+    color: #444;
+}
+
+.menuitem a{
+    display: block;
+    padding: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #444;
+    cursor: pointer;
+}
+
+.menuitem a:after {
+    display:block;
+    content: '';
+    color: #000;
+    border-bottom: 1px solid black;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+.menuitem a:hover:after { transform: scaleX(1); }
+
+/*LOGOUT*/
+
+.logout{
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    margin: 0;
+    padding: 0;
+    width: 15rem;
+    height: 3rem;
+    /*border: 1px solid black;*/
+}
+
+/*.logout form{*/
+/*    padding: 1rem;*/
+/*    border: 1px solid black;*/
+/*}*/
+
+.logout form button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+.logout form button *{
+    cursor: pointer;
+}
+.logout form button span{
+    padding-right: .5rem;
+    font-size: 2rem;
+}
+.logout form img{
+    width: 3rem;
+}

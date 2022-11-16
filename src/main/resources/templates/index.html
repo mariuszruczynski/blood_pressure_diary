@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-    <title>Blood pressure diary</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+    <title>Blood Pressure Diary</title>
+    <link rel="stylesheet" type="text/css" href="../static/resources/main.css">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>-->
 </head>
-
 <body>
-<header class="w3-cell-row">
-    <div class="w3-cell w3-container" style="text-align: center">
-        <h1>Dzienniczek pomiarów <br>ciśnienia tętniczego</h1><br>
+
+
+<div class="container">
+    <div class="logout">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">
+                <span>Logout</span>
+                <img src="../static/resources/images/logout.svg" alt="logout">
+            </button>
+        </form>
     </div>
-
-</header>
-
-
-<div class="w3-cell-row">
-    <div class="w3-cell w3-container" style="text-align: center">
-        <div class="menuitem"><a href="/addMeasurement">Dodaj pomiar</a></div>
-        <div class="menuitem"><a href="/setDateRange">Pokaż pomiary według dat</a></div>
-        <div class="menuitem"><a href="/measurements">Pokaż wszystkie pomiary</a></div>
-    </div>
+    <header>
+        <h1>Arterial Pressure Measurement Logbook</h1>
+        <!--    <img src="../static/resources/images/stethoscope.svg" alt="stethoscope">-->
+        <nav>
+            <div class="menuitem">
+                <a href="/addMeasurement">Dodaj pomiar</a>
+            </div>
+            <div class="menuitem">
+                <a href="/setDateRange">Pokaż pomiary według dat</a>
+            </div>
+            <div class="menuitem">
+                <a href="/measurements">Pokaż wszystkie pomiary</a>
+            </div>
+        </nav>
+    </header>
 </div>
 
 
-<footer class="w3-container w3-theme w3-margin-top" style="text-align: center">
-    <br>
 
-    <form th:action="@{/logout}" method="post"><input type="submit" value="Wyloguj"/></form>
-    <br>
-    <hr>
+<!--<div class="w3-cell-row">-->
+<!--    <div class="w3-cell w3-container" style="text-align: center">-->
+<!--        <div class="menuitem"><a href="/addMeasurement">Dodaj pomiar</a></div>-->
+<!--        <div class="menuitem"><a href="/setDateRange">Pokaż pomiary według dat</a></div>-->
+<!--        <div class="menuitem"><a href="/measurements">Pokaż wszystkie pomiary</a></div>-->
+<!--    </div>-->
+<!--</div>-->
 
-</footer>
+
+
 </body>
 
 </html>
