@@ -2,30 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Blood pressure diary</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+    <title>Blood Pressure Diary</title>
+    <link rel="stylesheet" href="../static/resources/main.css">
+    <link rel="stylesheet" href="../static/resources/measurementDetail.css">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/measurementDetail.css}"/>-->
 </head>
-<body style="background-image:url('/resources/images/img1.jpg');background-size: cover;">
-<h1>Measure details:</h1>
-
-<div>
-    <h2 th:utext="'Date: ' + ${measurement.date}"></h2>
-    <h2 th:utext="'Time: ' + ${measurement.time}"></h2>
-    <h2 th:utext="'Rr: ' + ${measurement.rr}"></h2>
-    <h2 th:utext="'Pulse: ' + ${measurement.pulse}"></h2>
-    <h2 th:utext="'Description: ' + ${measurement.description}"></h2>
-
+<body>
+<div class="container">
+    <div class="logout">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">
+                <span>Sign Out</span>
+                <img src="../static/resources/images/logout.svg" alt="logout">
+            </button>
+        </form>
+    </div>
+    <header>
+        <h1>Measure details:</h1>
+        <nav>
+            <ul>
+                <li><h2 th:utext="'Date: ' + ${measurement.date}"></h2></li>
+                <li><h2 th:utext="'Time: ' + ${measurement.time}"></h2></li>
+                <li><h2 th:utext="'Rr: ' + ${measurement.rr}"></h2></li>
+                <li><h2 th:utext="'Pulse: ' + ${measurement.pulse}"></h2></li>
+                <li><h2 th:utext="'Description: ' + ${measurement.description}"></h2></li>
+            </ul>
+            <div class="buttons">
+                <a th:href="@{/measurements}">Back</a>
+                <a href="index">Main menu</a>
+            </div>
+        </nav>
+    </header>
 </div>
-
-<br/>
-<a th:href="@{/measurements}">Back</a>
-<br><br>
-
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-<br><br>
-<br><br>
-<a href="index">Main menu</a>
 </body>
 </html>

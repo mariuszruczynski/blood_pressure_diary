@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100&display=swap');
+
+.logout form button span{
+    font-size: 1.5rem;
+}
+
+.logout form button img{
+    height: 2rem;
+}
+
+nav{
+    justify-content: space-between;
+}
+nav ul{
+    list-style-type: none;
+    width: 70%;
+}
+nav ul li{
+    padding: .5rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    width: 30%;
+}
+
+.buttons a{
+    margin: 2rem auto 0;
+    padding: .5rem;
+    width: 80%;
+    border-radius: 1rem;
+    display: block;
+    background-color: #f0932b;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: .9s;
+}
+
+.buttons a:last-child{
+    background-color: #c23616;
+}
+.buttons a:hover{
+    background-color: #fab1a0;
+}
+
+nav table{
+    border-collapse: collapse;
+    width: 80%;
+}
+
+nav table td, nav table th {
+    padding: .8rem;
+}
+
+nav table tr:nth-child(even){background-color: #f2f2f2;}
+
+nav table tr:hover {background-color: #ddd;}
+
+nav table th {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    text-align: left;
+    background-color: #fff;
+    color: #555;
+}
+
+nav form div{
+    padding: 1rem;
+    /*border: 1px solid black;*/
+    text-transform: capitalize;
+}
+
+nav form div input{
+    margin-left: .4rem;
+    font-size: 1rem;
+}
+
+nav form button{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: .4rem;
+    width: 100%;
+    background-color: transparent;
+    font-size: 1.2rem;
+    transition: .4s;
+}
+
+nav form button:hover{
+    background-color: #333;
+    color: #fff;
+}

@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-    <title>Blood pressure diary</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
+    <title>Blood Pressure Diary</title>
+    <link rel="stylesheet" href="../static/resources/main.css">
+    <link rel="stylesheet" href="../static/resources/measurementDetail.css">
+    <!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/measurementDetail.css}"/>-->
     <script type="text/javascript">
-        function myfunction() {
-            var startDate = document.getElementById("sd").value;
-            var endDate = document.getElementById("ed").value;
+        function onButtonClick() {
+            let startDate = document.getElementById("sd").value;
+            let endDate = document.getElementById("ed").value;
             if (startDate === "" || endDate === "") {
                 document.getElementById("sa").innerHTML = "<h2>bad date selected</h2>";
             } else {
@@ -19,33 +19,29 @@
         }
     </script>
 </head>
-
 <body>
 
-<form>
-    <br>
-    <h1>Ustaw zakres dat:</h1>
-    <br>
-    start date:<input type="date" id="sd"/>
-
-
-    <br><br>
-    end date:<input type="date" id="ed"/>
-    <br>
-    <br>
-    <input type="button"
-           onclick="myfunction()"
-           value="accept">
-    <br><br>
-
-    <span id="sa"></span><br><br>
-    <span id="sb"></span>
-
-</form>
-
-<br><br>
-<br><br>
-<a href="index">Main menu</a>
-<br><br><br>
+<div class="container">
+    <header>
+        <h1>Select Data Range:</h1>
+        <nav>
+            <form>
+                <div><label>start date: </label><input type="date" id="sd"/></div>
+                <div><label>end date: </label><input type="date" id="ed"/></div>
+                <button onClick="onButtonClick()">Accept</button>
+            </form>
+            <div class="buttons">
+                <a href="/setDateRange">Back</a>
+                <a href="index">Main menu</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="selected-data-content">
+            <span id="sa"></span>
+            <span id="sb"></span>
+        </div>
+    </main>
+</div>
 </body>
 </html>
