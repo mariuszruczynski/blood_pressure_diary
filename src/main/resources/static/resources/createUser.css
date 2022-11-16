@@ -10,6 +10,7 @@
     justify-content: space-around;
     flex-flow: wrap;
     height: 100vh;
+    max-height: 1080px;
 
 }
 
@@ -17,6 +18,7 @@
     width: 55vw;
     min-width: 600px;
     height: 80vh;
+    max-height: 1080px;
     margin-top: 10vh;
     border-radius: 1rem 12rem 12rem 1rem;
     background-image: url("images/create-acount.jpg");
@@ -41,6 +43,7 @@
     flex-flow: wrap;
     width: 35vw;
     height: 80vh;
+    max-height: 1080px;
 }
 
 .form-container div{
@@ -120,5 +123,10 @@
 
     .form-container input{
         border: 1px solid black;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    *{
+        font-size: 30px;
     }
 }
