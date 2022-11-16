@@ -5,19 +5,9 @@
     <title>Blood Pressure Diary</title>
     <link rel="stylesheet" href="../static/resources/main.css">
     <link rel="stylesheet" href="../static/resources/measurementDetail.css">
-    <!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/measurementDetail.css}"/>-->
-    <script type="text/javascript">
-        function onButtonClick() {
-            let startDate = document.getElementById("sd").value;
-            let endDate = document.getElementById("ed").value;
-            if (startDate === "" || endDate === "") {
-                document.getElementById("sa").innerHTML = "<h2>bad date selected</h2>";
-            } else {
-                document.getElementById("sa").innerHTML = "<a href=/" + startDate + "/" + endDate + "/measurementsByDate>Show</a>";
-                document.getElementById("sb").innerHTML = "<a href=/" + startDate + "/" + endDate + "/toPdf>Import to PDF</a>";
-            }
-        }
-    </script>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>-->
+<!--        <link rel="stylesheet" type="text/css" th:href="@{/resources/measurementDetail.css}"/>-->
+
 </head>
 <body>
 
@@ -31,7 +21,6 @@
                 <button onClick="onButtonClick()">Accept</button>
             </form>
             <div class="buttons">
-                <a href="/setDateRange">Back</a>
                 <a href="index">Main menu</a>
             </div>
         </nav>
@@ -43,5 +32,17 @@
         </div>
     </main>
 </div>
+<script type="text/javascript">
+    function onButtonClick() {
+        let startDate = document.getElementById("sd").value;
+        let endDate = document.getElementById("ed").value;
+        if (startDate === "" || endDate === "") {
+            document.getElementById("sa").innerHTML = "<h2>bad date selected</h2>";
+        } else {
+            document.getElementById("sa").innerHTML = "<a href=/" + startDate + "/" + endDate + "/measurementsByDate>Show</a>";
+            document.getElementById("sb").innerHTML = "<a href=/" + startDate + "/" + endDate + "/toPdf>Import to PDF</a>";
+        }
+    }
+</script>
 </body>
 </html>

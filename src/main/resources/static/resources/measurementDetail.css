@@ -93,3 +93,23 @@ nav form button:hover{
     background-color: #333;
     color: #fff;
 }
+
+.container main{
+    margin: 3rem auto 0;
+    width: 90%;
+}
+.selected-data-content a{
+    padding: .5rem;
+    width: 20%;
+    border-radius: 1rem;
+    display: block;
+    background-color: #00b894;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: .9s;
+}
+.selected-data-content a:hover{
+    background-color: #00cec9;
+}
