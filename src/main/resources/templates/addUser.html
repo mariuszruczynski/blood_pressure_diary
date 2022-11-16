@@ -3,47 +3,40 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+    <title>Blood Pressure Diary</title>
 
-    <title>Blood pressure diary</title>
-
-    <style>
-
-        html {
-            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="../static/resources/createUser.css">
     <!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>-->
 
 </head>
 <body>
-<center>
-    <h1>Załóż konto</h1>
-    <form th:action="@{/addUser}"
-          th:object="${user}" method="POST">
-        User name
-        <input type="text"  required="required" th:field="*{name}"/>
-        <br/>
-        Email
-        <input type="email" required="required" th:field="*{email}"/>
-        <br/>
-        Password
-        <input type="password"  required="required" th:field="*{password}"/>
-        <br/>
+<div class="container">
+    <aside class="photo-container">
+    </aside>
 
-        <br/>
-        <input type="submit" value="Zatwierdź"/>
-        <br/>
-    </form>
+    <div class="form-container">
 
-    <br><br>
-    <a href="index">Main menu</a>
-    <br><br>
-</center>
+        <h1>Create an Account</h1>
+        <form th:action="@{/addUser}" th:object="${user}" method="POST">
+            <div>
+                <label>User name</label>
+                <input type="text" class="data-input" required="required" th:field="*{name}"/>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" class="data-input" required="required" th:field="*{email}"/>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" class="data-input"  required="required" th:field="*{password}"/>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" class="form-submit-button" value="Create User!"/>
+                <a href="index" class="form-submit-button">Main menu</a>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

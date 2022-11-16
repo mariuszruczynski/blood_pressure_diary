@@ -10,15 +10,32 @@
 </head>
 <body>
 <div class="container">
-    <header>
-        <h2>Arterial Pressure Measurement Logbook</h2>
-    </header>
+    <aside>
+        <header>
+            <h2>Arterial Pressure Measurement Logbook</h2>
+        </header>
+
+
+        <div th:if="${param.error}" class="popup-statement">
+            <h3>
+                Błędna nazwa lub hasło.
+            </h3>
+        </div>
+        <div th:if="${param.logout}" class="popup-statement">
+            <h3>
+                Wylogowano.
+            </h3>
+        </div>
+    </aside>
     <main>
         <form th:action="@{/login}" method="post">
             <div class="input-text"><label> User Name : </label><input type="text" name="username"/> </div>
             <div class="input-text"><label> Password:</label> <input type="password" name="password"/> </div>
             <div class="form-submit-button"><input type="submit" value="Login"/></div>
         </form>
+            <div class="form-submit-button">
+                <a style="font-size: 25px" th:href="@{/addUser}">Załóż konto</a>
+            </div>
     </main>
 </div>
 

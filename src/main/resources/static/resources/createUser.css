@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    height: 100vh;
+
+}
+
+.photo-container {
+    width: 55vw;
+    min-width: 600px;
+    height: 80vh;
+    margin-top: 10vh;
+    border-radius: 1rem 12rem 12rem 1rem;
+    background-image: url("images/create-acount.jpg");
+    background-attachment: fixed;
+    background-position: center right;
+    background-size: cover;
+}
+
+.form-container{
+    margin: 5vh;
+}
+
+.form-container h1{
+    border-bottom: 1px solid black;
+}
+
+.form-container form{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    width: 35vw;
+    height: 80vh;
+}
+
+.form-container div{
+    width: 80%;
+    min-width: 300px;
+    margin: 2rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+}
+.data-input {
+    width: 100%;
+    height: 2rem;
+}
+
+.form-container .buttons{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    margin: 0;
+    width: 100%;
+    border: none;
+}
+
+.buttons a{
+    display: block;
+    background-color: #f0932b;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.buttons a:hover{
+    background-color: #ff7979;
+}
+
+.form-submit-button{
+    margin: .5rem;
+    padding: .5rem;
+    width: 60%;
+    border-radius: 1rem;
+    background-color: transparent;
+    font-size: 1.2rem;
+    transition: .9s;
+}
+.form-submit-button:hover{
+    background-color: #555;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1100px) {
+    .photo-container{
+        margin: 0;
+        border-radius: 0;
+        width: 100vw;
+        height: 40vh;
+    }
+
+    .form-container form{
+        display: block;
+        width: 100%;
+    }
+
+
+}
+
+@media only screen and (max-width: 800px) {
+    .photo-container{
+        display: none;
+    }
+    .form-container{
+        width: 100vw;
+    }
+
+    .form-container div{
+        margin: 2rem;
+    }
+
+    .form-container input{
+        border: 1px solid black;
+    }
+}
