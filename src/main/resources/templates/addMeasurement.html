@@ -3,48 +3,43 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-    <title>Blood pressure diary</title>
-
-    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>
-    <style>
-        html {
-            background: url(/resources/images/img1.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    </style>
+    <title>Blood Pressure Diary</title>
+    <link rel="stylesheet" type="text/css" href="../static/resources/createUser.css">
+    <link rel="stylesheet" type="text/css" href="../static/resources/addMeasurement.css"/>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"/>-->
 </head>
 <body>
-<h1><b>Dodaj pomiar</b></h1>
-<form th:action="@{/addMeasurement}"
-      th:object="${measurement}" method="POST">
-    Date:
-    <input type="date" th:field="*{date}"/>
-    <br/>
-    Time:
-    <input type="time" th:field="*{time}"/>
-    <br/>
-    RR:
-    <input type="text" th:field="*{rr}"/>
-    <br/>
-    Pulse
-    <input type="text" th:field="*{pulse}"/>
-    <br/>
-    Description:
-    <input type="text" th:field="*{description}"/>
-    <br/>
-    <input type="submit" value="Zatwierdź"/>
-    <br/>
-</form>
-<br><br>
-<br><br>
-<a href="index">Main menu</a>
-<br><br>
-<br><br>
-<br><br>
-<hr>
+<div class="container">
+    <div class="form-container">
+
+        <h1>Add Measurement</h1>
+        <form th:action="@{/addMeasurement}" th:object="${measurement}" method="POST">
+            <div>
+                <label>Date:</label>
+                <input type="date" class="data-input" th:field="*{date}"/>
+            </div>
+            <div>
+                <label>Time:</label>
+                <input type="time" class="data-input" th:field="*{time}"/>
+            </div>
+            <div>
+                <label>RR:</label>
+                <input type="text" class="data-input" th:field="*{rr}"/>
+            </div>
+            <div>
+                <label>Pulse:</label>
+                <input type="text" class="data-input" th:field="*{pulse}"/>
+            </div>
+            <div>
+                <label>Description:</label>
+                <input type="text" class="data-input" th:field="*{description}"/>
+            </div>
+            <div class="buttons">
+                <input type="submit" class="form-submit-button" value="Add"/>
+                <a href="index" class="form-submit-button">Main menu</a>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
