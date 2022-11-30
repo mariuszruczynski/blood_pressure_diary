@@ -21,7 +21,7 @@
     max-height: 1080px;
     margin-top: 10vh;
     border-radius: 1rem 12rem 12rem 1rem;
-    background-image: url("images/create-acount.jpg");
+    background-image: url("/resources/images/create-acount.jpg");
     background-attachment: fixed;
     background-position: center right;
     background-size: cover;
