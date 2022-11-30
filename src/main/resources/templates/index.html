@@ -4,7 +4,9 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blood Pressure Diary</title>
-    <link rel="stylesheet" type="text/css" href="../static/resources/main.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>
+
+    <!--    <link rel="stylesheet" type="text/css" href="..\static\resources\main.css">-->
 <!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>-->
 </head>
 <body>
@@ -15,7 +17,7 @@
         <form th:action="@{/logout}" method="post">
             <button type="submit">
                 <span>Logout</span>
-                <img src="../static/resources/images/logout.svg" alt="logout">
+                <img src="..\static\resources\images\logout.svg" alt="logout">
             </button>
         </form>
     </div>
@@ -24,13 +26,13 @@
         <!--    <img src="../static/resources/images/stethoscope.svg" alt="stethoscope">-->
         <nav>
             <div class="menuitem">
-                <a href="/addMeasurement">Dodaj pomiar</a>
+                <a href="\addMeasurement">Dodaj pomiar</a>
             </div>
             <div class="menuitem">
-                <a href="/setDateRange">Pokaż pomiary według dat</a>
+                <a href="\setDateRange">Pokaż pomiary według dat</a>
             </div>
             <div class="menuitem">
-                <a href="/measurements">Pokaż wszystkie pomiary</a>
+                <a href="\measurements">Pokaż wszystkie pomiary</a>
             </div>
         </nav>
     </header>

@@ -16,7 +16,7 @@ input:focus {
     flex-flow: wrap;
     height: 100vh;
     max-width: 1920px;
-    background-image: url("images/blood-cells.jpg");
+    background-image: url("/resources/images/blood-cells.jpg");
     background-attachment: fixed;
     background-position: center right;
     background-size: cover;
