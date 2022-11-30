@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blood Pressure Diary</title>
     <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>
-
-    <!--    <link rel="stylesheet" type="text/css" href="..\static\resources\main.css">-->
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>-->
 </head>
 <body>
 
@@ -17,13 +14,12 @@
         <form th:action="@{/logout}" method="post">
             <button type="submit">
                 <span>Logout</span>
-                <img src="..\static\resources\images\logout.svg" alt="logout">
+                <img th:src="@{/resources/images/logout.svg}" alt="logout">
             </button>
         </form>
     </div>
     <header>
         <h1>Arterial Pressure Measurement Logbook</h1>
-        <!--    <img src="../static/resources/images/stethoscope.svg" alt="stethoscope">-->
         <nav>
             <div class="menuitem">
                 <a href="\addMeasurement">Dodaj pomiar</a>

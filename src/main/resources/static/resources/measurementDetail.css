@@ -70,7 +70,6 @@ nav table th {
 
 nav form div{
     padding: 1rem;
-    /*border: 1px solid black;*/
     text-transform: capitalize;
 }
 
@@ -79,7 +78,7 @@ nav form div input{
     font-size: 1rem;
 }
 
-nav form button{
+nav form .accept-date-button{
     border: 1px solid black;
     border-radius: 1rem;
     padding: .4rem;
@@ -112,4 +111,8 @@ nav form button:hover{
 }
 .selected-data-content a:hover{
     background-color: #00cec9;
+}
+
+.paste-button{
+    margin: 1rem;
 }

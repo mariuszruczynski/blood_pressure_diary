@@ -13,7 +13,6 @@
     width: 100vw;
     max-height: 1080px;
     max-width: 1920px;
-    /*border: 1px solid red;*/
 }
 /*HEADER*/
 header{
@@ -74,13 +73,7 @@ nav div{
     padding: 0;
     width: 15rem;
     height: 3rem;
-    /*border: 1px solid black;*/
 }
-
-/*.logout form{*/
-/*    padding: 1rem;*/
-/*    border: 1px solid black;*/
-/*}*/
 
 .logout form button{
     display: flex;

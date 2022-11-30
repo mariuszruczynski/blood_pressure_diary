@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Blood Pressure Diary</title>
-<!--    <link rel="stylesheet" href="../static/resources/main.css">-->
-<!--    <link rel="stylesheet" href="../static/resources/measurementDetail.css">-->
     <link rel="stylesheet" type="text/css" th:href="@{/resources/main.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/resources/measurementDetail.css}"/>
     <script type="text/javascript">
@@ -14,8 +12,8 @@
         if (startDate === "" || endDate === "") {
             document.getElementById("sa").innerHTML = "<h2>bad date selected</h2>";
         } else {
-            document.getElementById("sa").innerHTML = "<a href=/" + startDate + "/" + endDate + "/measurementsByDate>Show</a>";
-            document.getElementById("sb").innerHTML = "<a href=/" + startDate + "/" + endDate + "/toPdf>Import to PDF</a>";
+            document.getElementById("sa").innerHTML = "<a class = 'paste-button' href=/" + startDate + "/" + endDate + "/measurementsByDate>Show</a>";
+            document.getElementById("sb").innerHTML = "<a class = 'paste-button' href=/" + startDate + "/" + endDate + "/toPdf>Import to PDF</a>";
         }
     }
     </script>
@@ -28,10 +26,10 @@
             <form>
                 <div><label>start date: </label><input type="date" id="sd"/></div>
                 <div><label>end date: </label><input type="date" id="ed"/></div>
-                <input type="button"
+                <input class="accept-date-button"
+                       type="button"
                        onclick="onButtonClick()"
                        value="Accept">
-<!--                <button onClick="onButtonClick()">Accept</button>-->
             </form>
             <div class="buttons">
                 <a href="index">Main menu</a>
